@@ -28,10 +28,20 @@ export const GET = async (
     )
   }
 
+  const hasPendingChangesFilter = (req.filterableFields as any).has_pending_changes
+  const filters = { ...req.filterableFields }
+  delete (filters as any).has_pending_changes
+
+  if (hasPendingChangesFilter === true || hasPendingChangesFilter === "true") {
+    filters.changes = {
+      status: "pending",
+    }
+  }
+
   const { data: products, metadata } = await query.graph({
     entity: "product",
     fields: req.queryConfig.fields,
-    filters: req.filterableFields,
+    filters,
     pagination: req.queryConfig.pagination,
   })
 

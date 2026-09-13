@@ -41,8 +41,19 @@
 
 ### main
 - **状态**: 主分支
-- **最新 Commit**: `a64621ceb` - "chore: initial version - orange"
+- **最新 Commit**: `91905c194` - "docs: add VERSION-CONTROL.md for tracking versions and branches"
 - **描述**: 稳定的主分支，所有功能分支最终合并到此
+
+### feat/pending-changes-filter
+- **创建时间**: 2025-01-21
+- **基于版本**: main (`91905c194`)
+- **功能描述**: 在管理员产品列表页面添加"待审核变更"筛选功能，让管理员能够快速筛选出有待审核 ProductChange 的产品
+- **状态**: 开发中
+- **修改文件**:
+  - `packages/core/src/api/admin/products/validators.ts` - 添加 `has_pending_changes` 查询参数
+  - `packages/core/src/api/admin/products/route.ts` - 添加筛选逻辑
+  - `packages/admin/src/pages/products/product-list/components/product-list-table/use-product-table-filters.tsx` - 添加前端筛选器选项
+- **技术说明**: ProductChange 是独立于 Product 的实体，有自己的状态（PENDING/CONFIRMED/DECLINED/CANCELED）。当供应商修改已发布产品时，会创建一个 PENDING 状态的 ProductChange，需要管理员审核。
 
 ---
 

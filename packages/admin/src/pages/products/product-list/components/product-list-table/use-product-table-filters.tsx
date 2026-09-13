@@ -117,6 +117,20 @@ export const useProductTableFilters = () => {
       })
     )
 
+    // Pending changes filter
+    filters.push(
+      filterHelper.accessor("has_pending_changes", {
+        label: t("products.filters.pendingChanges"),
+        type: "select",
+        options: [
+          {
+            label: t("products.filters.hasPendingChanges"),
+            value: "true",
+          },
+        ],
+      })
+    )
+
     return filters
   }, [product_types, product_tags, product_categories, collections, dateFilters, t])
 }

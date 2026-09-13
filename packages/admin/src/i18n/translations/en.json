@@ -414,6 +414,10 @@
     "domain": "Products",
     "associatedStore": "Associated Store",
     "additionalAttributes": "Additional Attributes",
+    "filters": {
+      "pendingChanges": "Pending Changes",
+      "hasPendingChanges": "Has pending changes"
+    },
     "list": {
       "noRecordsMessage": "Create your first product to start selling."
     },
